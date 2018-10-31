@@ -11,6 +11,7 @@ namespace project2
             do
             {
                 Console.Write("Operations: ");
+
                 operation = Console.ReadLine();
                 operation = operation.ToUpper();
                 switch (operation)

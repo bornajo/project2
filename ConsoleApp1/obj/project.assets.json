@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\borna\\project2\\project2\\project2.csproj",
-      "projectName": "project2",
-      "projectPath": "D:\\borna\\project2\\project2\\project2.csproj",
+      "projectUniqueName": "D:\\borna\\project2\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectName": "ConsoleApp1",
+      "projectPath": "D:\\borna\\project2\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\praktikant\\.nuget\\packages\\",
-      "outputPath": "D:\\borna\\project2\\project2\\obj\\",
+      "outputPath": "D:\\borna\\project2\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
