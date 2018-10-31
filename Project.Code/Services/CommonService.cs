@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace project2
+namespace Project.Code
 {
     public class CommonService : BaseService<Student>
     {
@@ -19,7 +19,7 @@ namespace project2
         }
         public new IEnumerable<Student> FindAll()
         {
-            return base.FindAll();
+            return FindAll();
         }
         protected override void DisplaySingle(Student model)
         {

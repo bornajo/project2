@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace project2
+namespace Project.Code
 {
-   public class Student : Person
+    public class Student : Person
     {
         public float GPA { get; set; }
-}
+    }
 }

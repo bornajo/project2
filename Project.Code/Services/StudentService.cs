@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace project2
+namespace Project.Code
 {
     public class StudentService : BaseService<Student>
     {

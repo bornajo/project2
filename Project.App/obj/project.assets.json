@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Project.Code/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Project.Code.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project.Code.dll": {}
+        }
       }
     }
   },
@@ -673,11 +683,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Project.Code/1.0.0": {
+      "type": "project",
+      "path": "../Project.Code/Project.Code.csproj",
+      "msbuildProject": "../Project.Code/Project.Code.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Project.Code >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -709,7 +725,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\borna\\project2\\Project.Code\\Project.Code.csproj": {
+              "projectPath": "D:\\borna\\project2\\Project.Code\\Project.Code.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

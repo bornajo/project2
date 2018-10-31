@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace project2
+namespace Project.Code
 {
     public class Person
     {

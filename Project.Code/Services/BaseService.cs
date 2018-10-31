@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace project2
+namespace Project.Code
 {
-    public abstract class BaseService<T> where T : Person
+    public abstract class BaseService<T> where T : Person, new ()
     {
         private readonly string roleName;
         private readonly StudentContainer container;
@@ -23,7 +23,7 @@ namespace project2
 
         public virtual T Add()
         {
-            var model = person.Create(roleName) as T; // cast is required because of AddSpecific(model) method
+            T model = new T();
 
             model.Id = StudentIdGenerator.Instance.GetUniqueId();
 
@@ -43,41 +43,20 @@ namespace project2
             } while (!valid);
 
 
-            model.Roles = roleName;
+           
 
             model = AddSpecific(model);
 
             return container.Add(model) as T;
         }
 
-        public virtual IEnumerable<T> Find()
-        {
-            var result = container.Find(roleName).Cast<T>().ToList();
 
-            if (result != null && result.Any())
-            {
-                DisplayList(result);
-            }
-
-            return result;
-        }
-
-        protected IEnumerable<Student> FindAll()
+        protected IEnumerable<Person> FindAll()
         {
             return container.FindAll();
         }
 
-        public virtual T Get(int id)
-        {
-            var result = container.Get(id, Id) as T;
-
-            if (result != null)
-            {
-                DisplaySingle(result);
-            }
-
-            return result;
-        }
+  
 
         /// <summary>
         /// Implement role specific value binding
