@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.Code
+namespace Project.Code.Common
 {
     public class CommonService : BaseService<Student>
     {

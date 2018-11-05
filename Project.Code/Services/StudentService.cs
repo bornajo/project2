@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Project.Code
+namespace Project.Code.Common
 {
     public class StudentService : BaseService<Student>
     {
 
-        public StudentService() : base(Roles.Student)
+        public StudentService() : base(Common.Roles.Student)
 
         {
         }

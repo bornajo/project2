@@ -1,0 +1,9 @@
+D:\borna\project2\Project.Code\bin\Debug\netcoreapp2.1\Project.Code.deps.json
+D:\borna\project2\Project.Code\bin\Debug\netcoreapp2.1\Project.Code.dll
+D:\borna\project2\Project.Code\bin\Debug\netcoreapp2.1\Project.Code.pdb
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.csprojAssemblyReference.cache
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.csproj.CoreCompileInputs.cache
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.AssemblyInfoInputs.cache
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.AssemblyInfo.cs
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.dll
+D:\borna\project2\Project.Code\obj\Debug\netcoreapp2.1\Project.Code.pdb

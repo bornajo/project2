@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Project.Code
+namespace Project.Code.Common
 {
-    public abstract class BaseService<T> where T : Person, new ()
+    public abstract class BaseService<T> where T : Person, new()
     {
         private readonly string roleName;
         private readonly StudentContainer container;
-
-
+        private readonly CommonService commonService;
+        private readonly StudentService studentService;
 
 
         protected BaseService(string roleName)
@@ -23,9 +23,10 @@ namespace Project.Code
 
         public virtual T Add()
         {
-            T model = new T();
-
-            model.Id = StudentIdGenerator.Instance.GetUniqueId();
+            T model = new T
+            {
+                Id = StudentIdGenerator.Instance.GetUniqueId()
+            };
 
             var valid = false;
             do
@@ -43,7 +44,7 @@ namespace Project.Code
             } while (!valid);
 
 
-           
+
 
             model = AddSpecific(model);
 
@@ -56,7 +57,7 @@ namespace Project.Code
             return container.FindAll();
         }
 
-  
+
 
         /// <summary>
         /// Implement role specific value binding
@@ -77,5 +78,45 @@ namespace Project.Code
         /// <param name="model">Model with employee data</param>
         protected abstract void DisplaySingle(T model);
 
+        public IEnumerable<Person> HandleDisplay()
+        {
+            var List = commonService.FindAll().ToArray();
+
+            for (int i = 0; i < List.Length; i++)
+            {
+                if (List[i].Role == Roles.Student)
+                {
+                    studentService.DisplaySingle(List[i] as Student);
+                }
+                //Console.WriteLine($"#{i + 1}. {employeeList[i].LastName} {employeeList[i].FirstName} {employeeList[i].Role}");
+
+            }
+
+            return List;
+
+        }
+
+        public void HandleAdd()
+        {
+            string role;
+            do
+            {
+                Console.WriteLine("Select person:");
+                role = Console.ReadLine();
+
+
+            } while (role != "student");
+
+           
+            switch (role.ToUpper()) 
+            {
+                case Roles.Student: 
+                studentService.Add();
+                    break;
+
+            }
+
+        }
     }
 }
+

@@ -18,12 +18,12 @@ namespace Project.Code
 
         public static StudentContainer Instance => instance ?? (instance = new StudentContainer());
 
-        public Person Add(Person student)
+        public Person Add(Person role)
         {
 
-            Container.Add(student);
+            Container.Add(role);
 
-            return student;
+            return role;
         }
 
 
@@ -33,5 +33,7 @@ namespace Project.Code
             return Container.ToList();
         }
 
+
+      
     }
 }
