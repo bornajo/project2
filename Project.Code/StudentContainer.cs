@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Project.Code
 {
@@ -11,7 +12,7 @@ namespace Project.Code
 
         private List<Person> Container { get; set; }
 
-        private StudentContainer()
+        public StudentContainer()
         {
             Container = new List<Person>();
         }
@@ -30,7 +31,8 @@ namespace Project.Code
 
         public IEnumerable<Person> FindAll()
         {
-            return Container.ToList();
+            var test = Container;
+            return Container;
         }
 
 

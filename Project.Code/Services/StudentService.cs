@@ -5,17 +5,56 @@ using System.Linq;
 
 namespace Project.Code.Common
 {
-    public class StudentService : BaseService<Student>
+    public class StudentService
     {
+        private readonly StudentContainer container;
 
-        public StudentService() : base(Common.Roles.Student)
-
+        public StudentService()
         {
+            container = new StudentContainer();
+
         }
-        protected override Student AddSpecific(Student model)
-
+        public void HandleAdd()
         {
-            bool valid;
+            string role;
+            do
+            {
+                Console.WriteLine("Select person:");
+                role = Console.ReadLine();
+
+
+            } while (role != "student");
+
+
+            switch (role.ToUpper())
+            {
+                case Roles.Student:
+                    Add();
+                    break;
+
+            }
+
+        }
+
+        public virtual Student Add()
+        {
+            Student model = new Student();
+
+
+            var valid = false;
+            do
+            {
+                Console.WriteLine("First name");
+                valid = Console.ReadLine().IsValidString(out var firstName);
+                model.FirstName = firstName;
+            } while (!valid);
+
+            do
+            {
+                Console.WriteLine("Last name");
+                valid = Console.ReadLine().IsValidString(out var lastName);
+                model.LastName = lastName;
+            } while (!valid);
             do
             {
                 Console.WriteLine("What GPA student has?");
@@ -23,20 +62,32 @@ namespace Project.Code.Common
                 model.GPA = GPA;
             } while (!valid);
 
-            return model;
+
+            return StudentContainer.Instance.Add(model) as Student;
         }
 
-        protected override void DisplayList(IEnumerable<Student> list)
+
+
+   
+
+        public IEnumerable<Person> FindAll()
         {
-            foreach (var item in list)
+            return StudentContainer.Instance.FindAll();
+        }
+
+
+
+        public IEnumerable<Person> HandleDisplay()
+        {
+            var test = container.FindAll();
+            var List = container.FindAll().Cast<Student>().ToArray();
+
+            for (int i = 0; i < List.Length; i++)
             {
-                DisplaySingle(item);
+                Console.WriteLine($"#{i + 1}. {List[i].Id}: {List[i].LastName}, {List[i].FirstName}, {List[i].GPA}");
             }
+            return List;
         }
 
-        protected override void DisplaySingle(Student model)
-        {
-            Console.WriteLine($"{model.Id}: {model.LastName}, {model.FirstName}, {model.GPA}");
-        }
     }
 }

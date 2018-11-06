@@ -39,10 +39,6 @@ namespace Project.App
             Console.WriteLine("---- will route you to add a student");
             Console.WriteLine("-- Display");
             Console.WriteLine("---- will display all students");
-            Console.WriteLine("-- List");
-            Console.WriteLine("---- will display all employees excluding you");
-            Console.WriteLine("-- <role>List");
-            Console.WriteLine("---- will display role specific employees. Example: CeoList, PmList");
         }
     }
 }
