@@ -1,5 +1,4 @@
 ﻿using Project.Code;
-using Project.Code.Common;
 using System;
 
 namespace Project.App
@@ -25,7 +24,7 @@ namespace Project.App
                         service.HandleDisplay();
                         break;
                     default:
-                        Console.WriteLine("Invalid command!");
+                        Console.WriteLine("Invalid operation!");
                         HandleHelp();
                         break;
                 }

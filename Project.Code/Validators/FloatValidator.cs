@@ -8,9 +8,9 @@ namespace Project.Code
     {
         public static bool IsValidFloat(this string input, out float number)
         {
-            if (int.TryParse(input, out var result))
+            if (float.TryParse(input, out float result))
             {
-                if (result < 0)
+                if (result < 1 || result > 5)
                 {
                     number = -1;
                     return false;

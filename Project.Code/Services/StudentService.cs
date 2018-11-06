@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Project.Code.Common
+namespace Project.Code
 {
     public class StudentService
     {
-        private readonly StudentContainer container;
-
-        public StudentService()
-        {
-            container = new StudentContainer();
-
-        }
         public void HandleAdd()
         {
             string role;
@@ -28,8 +21,8 @@ namespace Project.Code.Common
 
             switch (role.ToUpper())
             {
-                case Roles.Student:
-                    Add();
+                case "STUDENT":
+                     Add();
                     break;
 
             }
@@ -39,6 +32,7 @@ namespace Project.Code.Common
         public virtual Student Add()
         {
             Student model = new Student();
+            model.Id = StudentIdGenerator.Instance.GetUniqueId();
 
 
             var valid = false;
@@ -58,7 +52,7 @@ namespace Project.Code.Common
             do
             {
                 Console.WriteLine("What GPA student has?");
-                valid = Console.ReadLine().IsValidFloat(out var GPA);
+                valid = Console.ReadLine().IsValidFloat(out float GPA);
                 model.GPA = GPA;
             } while (!valid);
 
@@ -77,14 +71,14 @@ namespace Project.Code.Common
 
 
 
-        public IEnumerable<Person> HandleDisplay()
+        public IEnumerable<Student> HandleDisplay()
         {
-            var test = container.FindAll();
-            var List = container.FindAll().Cast<Student>().ToArray();
+         
+            var List = StudentContainer.Instance.FindAll().Cast<Student>().ToArray();
 
             for (int i = 0; i < List.Length; i++)
             {
-                Console.WriteLine($"#{i + 1}. {List[i].Id}: {List[i].LastName}, {List[i].FirstName}, {List[i].GPA}");
+                Console.WriteLine($"# {List[i].Id}: {List[i].LastName}, {List[i].FirstName}, {List[i].GPA}");
             }
             return List;
         }

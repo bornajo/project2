@@ -10,16 +10,16 @@ namespace Project.Code
     {
         private static StudentContainer instance;
 
-        private List<Person> Container { get; set; }
+        private List<Student> Container { get; set; }
 
         public StudentContainer()
         {
-            Container = new List<Person>();
+            Container = new List<Student>();
         }
 
         public static StudentContainer Instance => instance ?? (instance = new StudentContainer());
 
-        public Person Add(Person role)
+        public Student Add(Student role)
         {
 
             Container.Add(role);
@@ -29,13 +29,11 @@ namespace Project.Code
 
 
 
-        public IEnumerable<Person> FindAll()
+        public IEnumerable<Student> FindAll()
         {
-            var test = Container;
+    
             return Container;
         }
 
-
-      
     }
 }
